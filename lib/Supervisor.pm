@@ -22,23 +22,23 @@ sub startup ($self) {
 
 	my $auth = $r->under("/" => sub ($c) {
 		return 1 if $c->session('user');
-		
+
 		use Data::Dumper;
 		return 1 if $c->match->endpoint->name =~ m/^auth/;
 
 		return undef;
 	});
 
-	$auth->any("/auth/logout")->to("auth#logout");	
+	$auth->any("/auth/logout")->to("auth#logout");
 
-	$auth->get("/users")->to("user#all");
+	my $users = $auth->under("/users")->to("user#base");
+	$users->get("/")->to("user#all");
+	$users->post("/")->to("user#update");
+	$users->delete("/")->to("user#delete");
+	$users->post("/create")->to("user#create");
 
-	$auth->post("/users")->to("user#update");
-	$auth->post("/user")->to("user#create");
+
 	$auth->post("/auth/login")->to("auth#login");
-
-	$auth->delete("/users")->to("user#delete");
-
 }
 
 1;

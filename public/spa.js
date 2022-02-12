@@ -255,7 +255,7 @@
 				remove_empty: true,
 				createable: {
 					type: "POST",
-					endpoint: "/user",
+					endpoint: "/users/create",
 					id: "create-user-form"
 				},
 				editable: {

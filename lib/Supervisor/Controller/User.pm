@@ -3,11 +3,15 @@ use Mojo::Base 'Mojolicious::Controller', -signatures;
 
 use Data::GUID;
 
+sub base ($self) {
+	my $users = $self->fdb->read('users');
+	$self->stash(users => $users);
+	return 1;
+}
+
 # This action will render a template
 sub all ($self) {
-	my $users = $self->fdb->read('users');
-
-	my @users = _users_to_array($users);
+	my @users = _users_to_array($self->stash("users"));
 
 	$self->render(json => { 
 		data =>	\@users,

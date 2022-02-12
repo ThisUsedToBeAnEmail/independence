@@ -1,54 +1,18 @@
 {
-   "bad" : {
-      "username" : "bad",
-      "token" : "70F90348-8BFD-11EC-A7E8-DAAE9C7B2E99",
-      "last_name" : "test",
-      "first_name" : "test",
-      "active" : true,
-      "id" : 5,
-      "email" : "test@lnation.org",
-      "admin" : true
-   },
-   "test" : {
-      "last_name" : "test",
-      "address_line_1" : "test",
-      "first_name" : "test",
-      "username" : "test",
-      "address_line_3" : "test",
-      "landline" : "+441234567890",
-      "admin" : true,
-      "id" : 2,
-      "email" : "test@lnation.org",
-      "token" : "A0E31F32-8BFB-11EC-B221-C1AD9C7B2E99",
-      "address_line_2" : "test",
-      "address_line_4" : "test",
-      "active" : false,
-      "mobile" : "+441234567890"
-   },
-   "lets" : {
-      "email" : "test@lnation.org",
-      "id" : 6,
-      "active" : true,
-      "admin" : true,
-      "username" : "lets",
-      "first_name" : "test",
-      "last_name" : "test",
-      "token" : "01B9CFA4-8C01-11EC-A7E8-DAAE9C7B2E99"
-   },
    "lnation" : {
-      "active" : true,
-      "mobile" : "+441234567890",
-      "address_line_4" : "test",
-      "address_line_2" : "test",
-      "email" : "email@lnation.org",
+      "last_name" : "test",
       "id" : 1,
-      "landline" : "++441234567890",
-      "admin" : true,
+      "address_line_2" : "test",
       "username" : "lnation",
       "address_line_3" : "test",
-      "last_name" : "test",
+      "active" : true,
+      "password" : "$argon2id$v=19$m=32768,t=3,p=1$MjVERkM2QTYtOEJEQy0xMUVDLUFGNTktODM4OTlDN0IyRTk5$0nlJQb4au4SHbRnhvv9Fpw",
+      "address_line_4" : "test",
+      "landline" : "++441234567890",
       "address_line_1" : "test",
+      "admin" : true,
       "first_name" : "test",
-      "password" : "$argon2id$v=19$m=32768,t=3,p=1$MjVERkM2QTYtOEJEQy0xMUVDLUFGNTktODM4OTlDN0IyRTk5$0nlJQb4au4SHbRnhvv9Fpw"
+      "mobile" : "+441234567890",
+      "email" : "email@lnation.org"
    }
 }
