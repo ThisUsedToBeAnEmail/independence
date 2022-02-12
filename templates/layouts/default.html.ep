@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style id="dynamic-styles">
+		</style>
+		<link rel="stylesheet" href="/supervisor.css" />
+	</head>
+	<body>
+		<%= content %>
+		<div id="raise-errors">
+		</div>
+	</body>
+</html>

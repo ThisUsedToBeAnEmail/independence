@@ -1,0 +1,32 @@
+{
+   "robert" : {
+      "address_line_3" : "Solar",
+      "address_line_1" : "100 landline lane",
+      "address_line_4" : "Z11J22",
+      "landline" : "01234567890",
+      "address_line_2" : "Jupiter",
+      "active" : true,
+      "mobile" : "+447171717171",
+      "admin" : true,
+      "first_name" : "Robert",
+      "password" : "$argon2id$v=19$m=32768,t=3,p=1$MjFEM0M5NzAtODk2RC0xMUVDLThGODEtRkQ2N0U5MDAyNEU5$kX+lG442kxHBvi/4e6CgQg",
+      "id" : 1,
+      "last_name" : "A",
+      "email" : "email@lnation.org",
+      "username" : "robert"
+   },
+   "foo" : {
+      "address_line_2" : "Jupiter",
+      "email" : "email@foo.bar",
+      "active" : true,
+      "address_line_4" : "Z11J22",
+      "landline" : "01234567890",
+      "address_line_3" : "Solar",
+      "address_line_1" : "102 landline lane",
+      "last_name" : "Bar",
+      "first_name" : "test",
+      "mobile" : "+447171717171",
+      "admin" : true,
+      "username" : "foo"
+   }
+}

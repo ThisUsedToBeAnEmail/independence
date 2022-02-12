@@ -1,0 +1,647 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.full-screen {
+	font-size: 16px;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	background: var(--login-background-color);
+	color: var(--login-font-color);
+	overflow: hidden;
+}
+
+.full-screen form {
+	border: 1px solid var(--login-border-color);
+	padding: 1em;
+	margin: 0;
+	box-shadow: 1px 1px 6px 1px var(--login-box-color-1), 0px 1px 5px 1px var(--login-box-color-2), 0px 0px 14px 2px var(--login-box-color-3);
+	border-radius: 0.5em;
+	width: 400px;
+}
+
+#login .form-field {
+	padding: 0 0 1em 0em;
+}
+
+#login .form-field input {
+	width: 100%;
+	padding: 0.5em;
+	border: 1px solid var(--login-form-field-border-color);
+	box-sizing: border-box;
+	background: var(--login-form-field-background-color);
+	color: var(--login-form-field-font-color);
+}
+
+#login .form-field input[type="submit"]:hover {
+	cursor: pointer;
+	background: var(--login-form-field-submit-hover);
+}
+
+#login .form-field label {
+	display: inline-block;
+	margin: 0 0 0.5em 0;
+}
+
+img.organisation-logo {
+	width: 100%;
+	display: block;
+	margin: auto;
+	max-width: 300px;
+	margin: 1em auto;
+	box-sizing: border-box;
+}
+
+h2.login-header {
+	text-align: center;
+	margin: 0;
+	border-bottom: 1px solid var(--login-border-color);
+	padding-bottom: 0.5em;
+}
+
+#login .form-field.border-top {
+	border-top: 1px solid var(--login-border-color);
+	padding-top: 0.5em;
+}
+
+
+.full-screen .notify.error:first-child {
+	background: var(--error-background);
+	width: 400px;
+	padding: 0.5em 1em;
+	border-radius: 1em;
+	margin-bottom: 1em;
+	border: 1px solid var(--login-border-color);
+	box-shadow: 1px 1px 6px 1px var(--login-box-color-1), 0px 1px 5px 1px var(--login-box-color-2), 0px 0px 14px 2px var(--login-box-color-3);
+}
+
+.notify h3 {
+    background: var(--notify-header-background);
+    padding: 0.5em;
+    margin: 0;
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+.notify div {
+    padding: 0.5em 1em 0 1em;
+    text-align: center;
+}
+
+.pb-0 {
+	padding: 0;
+}
+
+.main.full-screen {
+	align-content: flex-start;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+div#main-menu {
+	display: flex;
+	width: 100%;
+	background: var(--menu-background);
+	border-bottom: 1px solid var(--menu-border);
+	box-shadow: 2px 5px 10px 1px var(--menu-box-color-1);
+}
+
+.menu-item {
+	color: var(--menu-font-color);
+}
+
+.menu-item a {
+	text-decoration: none;
+	color: inherit;
+	padding: 1em;
+	display: block;
+}
+
+.menu-item:hover {
+	background: var(--menu-hover-background);
+	cursor: pointer;
+}
+
+.menu-item.active {
+	background: var(--menu-active-background);
+	color: var(--menu-active-font-color);
+}
+
+.application-page {
+	background: var(--page-background);
+	color: var(--page-color);
+	height: 0;
+	width: -webkit-fill-available;
+	padding: 0em;
+	margin: 0em;
+	box-sizing: border-box;
+	white-space: nowrap;
+	opacity: 0;
+	transform: translateX(200%);
+	transition: opactiy 1s ease, transform 1s ease;
+}
+
+.application-page.active {
+	opacity: 1;
+	transform: none;
+	padding: 1em;
+	height: 100%;
+	margin: 1em;
+	overflow: scroll;
+}
+
+.tabulator-table-wrapper {
+	display: block;
+}
+
+.supervisor-card-body {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	justify-content: center;
+	align-items: stretch;
+}
+
+.supervisor-card-row {
+	padding: 1em 1em 3em 1em;
+	margin: 0.5em;
+	border: 1px solid var(--card-border);
+	box-shadow: 3px 3px 6px 0px var(--card-box-color-1), 6px 6px 12px var(--card-box-color-2);
+	border-radius: 0.4em;
+	position: relative;
+	background: var(--card-background);
+	color: var(--card-color);
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch;
+	align-content: center;
+}
+
+.supervisor-card-row-delete {
+	position: absolute;
+	bottom: 0.8em;
+	left: 1em;
+}
+
+b.supervisor-card-row-header {
+	padding-right: 0.5em;
+}
+
+.supervisor-card-row.supervisor-card-row-editable:hover {
+	cursor: pointer;
+	background: var(--card-hover-background);
+}
+
+.supervisor-card-row.supervisor-card-row-editable:hover:before {
+	content: "edit";
+	position: absolute;
+	top: -10px;
+	right: 0;
+	width: 100px;
+	border-radius: 0.4em;
+	padding: 0.2em;
+	text-align: center;
+	color: var(--card-hover-edit-font-color);;
+	background: var(--card-hover-edit-background);
+}
+
+.supervisor-card-sort {
+	display: inline-block;
+	padding-right: 1em;
+}
+
+.supervisor-card-filter {
+	display: inline-block;
+}
+
+.supervisor-card-header {
+	margin-top: 0.5em;
+}
+
+.supervisor-card-header-sort-filter select, .supervisor-card-header-sort-filter input {
+	margin: 0.5em;
+}
+
+.supervisor-card-header select, .supervisor-card-header input {
+	padding: 0.4em;
+	border: 1px solid var(--card-field-border-color);
+	box-sizing: border-box;
+	background: var(--card-field-background-color);
+	color: var(--card-field-font-color);
+}
+
+.supervisor-card-filter input {
+	width: 211px;
+}
+
+.supervisor-card-title h1, .supervisor-card-title p {
+	margin: 0
+}
+
+.supervisor-card-title p {
+	word-break: break-word;
+	white-space: break-spaces;
+}
+
+.supervisor-card-title {
+	display: flex;
+	flex-direction: row;
+	align-content: flex-start;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
+}
+
+.supervisor-card-title h1 {
+	padding-right: 1em;
+	vertical-align: top;
+}
+
+.supervisor-card-header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: flex-start;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+}
+
+.supervisor-card-header-pagination {
+	display: flex;
+	padding-right: 1em;
+}
+
+button.supervisor-card-create {
+	margin-right: 1em;
+}
+
+.supervisor-card-footer button,
+.supervisor-card-header button {
+	padding: 0.5em;
+	border: 1px solid var(--card-field-border-color);
+	box-sizing: border-box;
+	background: var(--card-field-background-color);
+	color: var(--card-field-font-color);
+}
+
+.supervisor-card-header button:hover,
+.supervisor-card-footer button:hover {
+	background: var(--card-field-button-hover-background);
+	cursor: pointer;
+}
+
+.supervisor-card-pagination button.supervisor-current-page {
+	color: var(--card-field-pagination-selected-color);
+}
+
+button[disabled] {
+	background: var(--card-field-button-disabled-background);
+	pointer-events: none;
+	cursor: none;
+	opacity: 0.5;
+}
+
+.supervisor-card-header-sort-filter {
+	width: 100%;
+	text-align: right;
+}
+
+.supervisor-card-footer {
+	display: flex;
+	margin: 0.5em 0;
+}
+
+.supervisor-card-header-pagination-create {
+	display: flex;
+}
+
+.supervisor-modal-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--modal-overlay-background);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+}
+
+.supervisor-modal {
+	background: white;
+	width: 500px;
+	box-shadow: 2px 2px 5px 0px rgb(30 34 37), 4px 4px 10px 10px rgb(70 74 77);
+}
+
+.supervisor-modal-header {
+	background: var(--modal-header-background);
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+.supervisor-modal-footer {
+	background: var(--modal-header-footer);
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+.supervisor-modal-body {
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+	max-height: 66vh;
+	overflow: scroll;
+}
+
+.supervisor-modal-close {
+	position: absolute;
+	right: 20px;
+	padding: 1em;
+	top: 16px;
+	border: 1px solid var(--modal-close-border);
+	text-align: left;
+	background: var(--modal-close-background);
+	border-radius: 1em;
+	cursor: pointer;
+}
+
+.supervisor-modal-close:hover {
+	background: var(--modal-close-hover-background);
+}
+
+.supervisor-modal-close i {
+	font-size: 20px;
+	color: white;
+	pointer-events: none;
+}
+
+.supervisor-modal-header h3 {
+	margin: 0;
+	color: rgb(230, 234, 237);
+}
+
+.supervisor-modal-footer input {
+	margin-right: 1em;
+	padding: 0.5em;
+	border: 1px solid var(--modal-form-footer-field-border-color);
+	box-sizing: border-box;
+	background: var(--modal-form-footer-field-background-color);
+	color: var(--modal-form-footer-field-font-color);
+}
+
+.supervisor-modal-footer input:hover {
+	cursor: pointer;
+	background: var(--modal-form-footer-field-submit-hover);
+}
+
+.supervisor-modal-body h3 {
+	margin: 0 0 1em 0;
+}
+
+.supervisor-modal-body p {
+	margin: 0;
+}
+
+[data-tooltip-inline]:hover:before {
+	border-radius: 0.2em;
+	white-space: break-spaces;
+	max-width: 500px;
+	background: var(--data-tooltip-background);
+	color: var(--data-tooltip-color);
+	padding: 0.2em;
+	word-break: break-word;
+	position: absolute;
+	top: 20px;
+	content: attr(data-tooltip-inline);
+	z-index: 1;
+	font-size: 12px;
+}
+
+.supervisor-card-row-cell {
+	position: relative;
+}
+
+.supervisor-form-field label {
+	display: block;
+	padding: 0.5em 0;
+	font-weight: 600;
+}
+
+.supervisor-form-field input {
+	font-size: 14px;
+	width: 100%;
+	padding: 0.5em;
+	box-sizing: border-box;
+	background: var(--modal-form-field-background);
+	border: 1px solid var(--modal-form-field-border);
+}
+
+.supervisor-form-field p:empty {
+	display: none;
+}
+
+.supervisor-form-field p {
+	margin: 0.5em 0 0 0;
+	padding: 1em;
+	background: var(--modal-form-field-info-background);
+	color: var(--modal-form-field-info-color);
+}
+
+label.supervisor-switch {
+	width: 70px;
+	background: var(--modal-form-field-switch-background);
+	border-radius: 0em;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid var(--modal-form-field-switch-border-color);
+}
+
+.supervisor-switch span {
+	margin: 0;
+	width: 50%;
+	background: var(--modal-form-field-switch-span-background-color);
+	height: 30px;
+	padding: 0;
+	display: block;
+	border: 1px solid var(--modal-form-field-switch-span-border-color);;
+	box-sizing: border-box;
+	transition: all 1s ease;
+	position: relative;
+}
+
+.supervisor-switch input[type="checkbox"] {
+	display: none;
+}
+
+.supervisor-switch span:before {
+	content: "false";
+	position: absolute;
+	transform: translate(50%, 20%);
+	color: var(--modal-form-field-switch-span-color);
+}
+
+label.supervisor-switch input:checked + span {
+	width: 100%;
+}
+
+label.supervisor-switch input:checked + span:before {
+	content: "true";
+	transform: translate(65%, 20%);
+}
+
+.supervisor-form-field input[readonly] {
+	background: var(--modal-form-field-readonly-background);;
+}
+
+.supervisor-field-error-text {
+	background: var(--application-form-field-error-background);
+	width: 250px;
+	border: 1px solid var(--application-form-field-error-border-color);
+	z-index: 4;
+	margin-top: -1.5em;
+	transform: matrix(1, 0, 0, 1, 0, 0);
+	padding: 0.5em;
+	border-radius: 0.5em;
+	box-shadow: 2px 2px 5px var(--application-form-field-error-box-color-1), 7px 5px 4px var(--application-form-field-error-box-color-2), inset 2px 2px 2px var(--application-form-field-error-box-color-1);
+	font-size: 16px;
+}
+
+.supervisor-form-field {
+	position: relative;
+}
+
+.supervisor-field-error {
+	position: absolute;
+	z-index: 1;
+	transform: translate(34%, 5px);
+}
+
+.supervisor-field-error-pointer {
+	height: 35px;
+	width: 35px;
+	background: var(--application-form-field-error-pointer-background);
+	margin: auto;
+	transform: rotate(45deg);
+	border: 1px solid var(--application-form-field-error-pointer-border-color);
+	border-radius: 0.5em;
+	z-index: -1;
+}
+
+div#raise-errors {
+	position: fixed;
+	right: 2%;
+	bottom: 4%;
+	width: 200px;
+	z-index: 10;
+}
+
+#raise-errors .notify {
+	border-radius: 0.5em;
+	overflow: hidden;
+	text-align: left;
+	box-shadow: inset 2px 2px 2px var(--notify-box-color-1), 2px 2px 2px var(--notify-box-color-2);
+	margin: 0.7em;
+}
+
+
+
+.supervisor-card-row-content {
+    background: rgb(240, 244, 247);
+    padding: 1em;
+    border-radius: 0.4em;
+    box-shadow: inset 2px 2px 2px rgb(200, 204, 207);
+}
+
+.notify.error {
+	background: var(--error-background);
+	color: var(--error-color);
+}
+
+.notify.success {
+	background: var(--success-background);
+	color: var(--success-color);
+}
+
+#raise-errors .notify h3 {
+	padding: 0.5em 1em;
+	text-align: left;
+}
+
+#raise-errors .notify div {
+	text-align: left;
+	padding: 0.5em 1em;
+}
+
+@media only screen and (max-width: 900px) {
+	.supervisor-card-header {
+		flex-wrap: wrap;
+	}
+	.supervisor-card-header-pagination-create {
+		margin-bottom: 0.5em;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.supervisor-card-title {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.supervisor-card-row {
+		width: 100%;
+	}
+	.supervisor-card-sort {
+		padding-right: 0;
+		padding-left: 0.3em;
+		display: block;
+	}
+	.supervisor-card-filter {
+		display: block;
+	}
+	.supervisor-card-header {
+		text-align: left;
+		margin-top: 0;
+	}
+	.supervisor-card-filter input {
+		width: 150px;
+	}
+	.supervisor-card-title h1 {
+		 width: 100%;
+	}
+	.supervisor-card-header {
+		flex-direction: column-reverse;
+		align-items: flex-start;
+	}
+	.supervisor-card-header-pagination {
+		display: inline-flex;
+	}
+	.supervisor-card-header-sort-filter {
+		text-align: center;
+	}
+	.supervisor-card-header-pagination-create {
+		margin-top: 0.5em;
+	}
+	.supervisor-field-error {
+		transform: translate(11%, 5px);
+	}
+}
