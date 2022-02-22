@@ -5,7 +5,7 @@
 		"--application-form-field-error-box-color-1": "rgb(200, 204, 207, 0.66)",
 		"--application-form-field-error-box-color-2": "rgb(220, 224, 227, 0.66)",
 		"--application-form-field-error-border-color": "rgb(30, 34, 37)",
-		"--application-form-field-error-pointer-background": "rgb(30, 34, 37)",
+		"--application-form-field-error-pointer-background": "#fffd91",
 		"--application-form-field-error-pointer-border-color": "rgb(30, 34, 37)",
 		"--login-background-color": "rgb(30, 34, 37)",
 		"--login-font-color": "#dadada",

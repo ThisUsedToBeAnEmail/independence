@@ -676,7 +676,7 @@
 											self.sv.locale[self.options.locale_section].create_modal_success_title(row), 
 											self.sv.locale[self.options.locale_section].create_modal_success_description(row),
 										);
-										self.data = res.users;
+										self.data = res.all || res.users;
 										self.redrawCards();
 									} else ecb(res);
 								},
@@ -761,7 +761,7 @@
 									cb: function (res) {
 										if (res.success) {
 											self.sv.document.querySelector('.supervisor-modal-close').click();
-											self.data = res.users;
+											self.data = res.all || res.users;
 											self.redrawCards();
 										} else ecb(res);
 									},
@@ -836,7 +836,7 @@
 											self.sv.locale[self.options.locale_section].edit_modal_success_title(row), 
 											self.sv.locale[self.options.locale_section].edit_modal_success_description(row),
 										);
-										self.data = res.users;
+										self.data = res.all || res.users;
 										self.redrawCards();
 									} else ecb(res);
 								},

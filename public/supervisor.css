@@ -516,11 +516,11 @@ label.supervisor-switch input:checked + span:before {
 	width: 250px;
 	border: 1px solid var(--application-form-field-error-border-color);
 	z-index: 4;
-	margin-top: -1.5em;
+	margin-top: 0.35em;
 	transform: matrix(1, 0, 0, 1, 0, 0);
 	padding: 0.5em;
 	border-radius: 0.5em;
-	box-shadow: 2px 2px 5px var(--application-form-field-error-box-color-1), 7px 5px 4px var(--application-form-field-error-box-color-2), inset 2px 2px 2px var(--application-form-field-error-box-color-1);
+	box-shadow: 2px 2px 5px var(--application-form-field-error-box-color-1), 7px 5px 4px var(--application-form-field-error-box-color-2),;
 	font-size: 16px;
 }
 
@@ -531,18 +531,22 @@ label.supervisor-switch input:checked + span:before {
 .supervisor-field-error {
 	position: absolute;
 	z-index: 1;
-	transform: translate(34%, 5px);
+	transform: translate(34%, 2px);
 }
 
 .supervisor-field-error-pointer {
-	height: 35px;
-	width: 35px;
+	height: 11px;
+	width: 11px;
 	background: var(--application-form-field-error-pointer-background);
+	position: absolute;
 	margin: auto;
+	left: 10%;
+	top: 0;
 	transform: rotate(45deg);
-	border: 1px solid var(--application-form-field-error-pointer-border-color);
-	border-radius: 0.5em;
-	z-index: -1;
+	border-radius: 0.1em;
+	border: 1px solid var(--application-form-field-error-pointer-background);
+	border-top-color: var(--application-form-field-error-pointer-border-color);
+	border-left-color: var(--application-form-field-error-pointer-border-color);;
 }
 
 div#raise-errors {
@@ -560,8 +564,6 @@ div#raise-errors {
 	box-shadow: inset 2px 2px 2px var(--notify-box-color-1), 2px 2px 2px var(--notify-box-color-2);
 	margin: 0.7em;
 }
-
-
 
 .supervisor-card-row-content {
     background: rgb(240, 244, 247);
@@ -589,6 +591,247 @@ div#raise-errors {
 	text-align: left;
 	padding: 0.5em 1em;
 }
+
+input[data-error] {
+    border-color: var(--error-background);
+    border-style: dashed;
+}
+
+.p0 {
+	padding: 0 !important;
+}
+
+.supervisor-chat-user-card img {
+    width: 50px;
+    border-radius: 10em;
+}
+
+.monitor-wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.supervisor-chat-left-side {
+    width: 20%;
+    background: rgb(240, 244, 247);
+    border-right: 1px solid rgb(200, 204, 207);
+}
+
+.supervisor-chat-left-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1em;
+    background: rgb(220, 224, 227);
+    box-shadow: inset 0px 0px 3px 0px;
+}
+
+.supervisor-chat-left-heading h3 {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+.supervisor-user-list-item {
+    padding: 1em;
+    border: 1px solid rgb(200, 204, 207);
+}
+
+.supervisor-user-list-item:hover {
+    background: rgb(230, 234, 237);
+    box-shadow: inset 0px 0px 5px 2px rgb(200 204 207);
+    cursor: pointer;
+}
+
+.supervisor-specific-user-list-chat.hiding {
+    display: none;
+}
+
+.supervisor-chat-right-side {
+    display: flex;
+    height: 100%;
+    width: 80%;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.supervisor-chat-area {
+    align-self: flex-end;
+    width: -webkit-fill-available;
+    display: flex;
+}
+
+.supervisor-chat-area textarea {
+    width: -webkit-fill-available;
+    height: 100px;
+    min-width: 95%;
+}
+
+.supervisor-chat-area button {
+    width: 5%;
+}
+
+.supervisor-user-chat {
+	display: flex;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 100%;
+	background: #fff;
+	flex-direction: column;
+}
+
+.supervisor-chat-user-card {
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    background: rgb(220 224 227);
+    color: inherit;
+    border: 1px solid rgb(200, 204, 207);
+}
+
+.supervisor-chat-user-card h5 {
+    padding: 0.5em;
+}
+
+.supervisor-chat-item {
+    display: flex;
+    width: 100%;
+}
+
+.supervisor-specific-user-list-chat {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.supervisor-chat-text p {
+	white-space: normal;
+	margin: 0;
+	word-break: break-word;
+	width: -webkit-fill-available;
+	padding: 0 1em 0 0;
+}
+
+.supervisor-chat-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgb(200, 204, 207);
+    width: 100%;
+}
+
+.supervisor-chat-manage-card {
+    padding: 0 !important;
+}
+
+.supervisor-chat-text div:last-child {
+    padding: 1em;
+}
+
+.supervisor-chat-text div:last-child i:last-child {
+    padding-left: 1em;
+}
+
+.supervisor-chat-manage-card button {
+    margin: 0 0 0 0.5em;
+}
+
+.supervisor-chat-new-day {
+	text-align: center;
+	background: rgb(220, 224, 227);
+}
+
+.supervisor-chat-load-more {
+	text-align: center;
+	background: rgb(220, 224, 227);
+}
+
+.supervisor-chat-text-manage {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    padding: 1em 1em 0 1em;
+    box-sizing: border-box;
+}
+
+.supervisor-chat-manage-card button {
+    padding: 0.5em;
+    border: 1px solid var(--card-field-border-color);
+    box-sizing: border-box;
+    background: var(--card-field-background-color);
+    color: var(--card-field-font-color);
+}
+
+.supervisor-chat-manage-card button:hover {
+    background: rgb(220, 224, 227);
+    cursor: pointer;    
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 50px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 21px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #151719;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+
+
 
 @media only screen and (max-width: 900px) {
 	.supervisor-card-header {

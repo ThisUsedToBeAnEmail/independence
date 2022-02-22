@@ -4,40 +4,34 @@ use Mojo::Base 'Mojolicious::Controller', -signatures;
 use Data::GUID;
 
 sub base ($self) {
-	my $users = $self->fdb->read('users');
-	$self->stash(users => $users);
 	return 1;
 }
 
 # This action will render a template
 sub all ($self) {
-	my @users = _users_to_array($self->stash("users"));
+	my $users = $self->model('User')->all();
+
+#	my @users = _users_to_array($self->stash("users"));
 
 	$self->render(json => { 
-		data =>	\@users,
-		total => scalar @users
+		data =>	$users,
+		total => scalar @{$users}
 	});
 }
 
 sub create ($self) {
 	my $data = $self->req->json;
 
-	my $users = $self->fdb->read('users');
-
-	my $id = scalar %{ $users };
-
-	$data->{id} = $id;
-
 	$data->{token} = Data::GUID->new->as_string;
 
-	$users->{$data->{username}} = $data;
+	my $success = $self->model('User')->create($data);
 	
-	$self->fdb->write("users", $users);
+	my $users = $self->model('User')->all();
 
 	$self->render(json => {
-		success => 1,
+		success => $success,
 		password_link => "/user/password/" . $data->{token},
-		users => [_users_to_array($users)],
+		users => $users,
 	});
 }
 
@@ -49,29 +43,14 @@ sub read ($self) {
 sub update ($self) {
 	my $data = $self->req->json;
 
-	my $users = $self->fdb->read('users');
+	my $model = $self->model('User');
 
-	my $res = { success => 0 };
-	if ($data->{username} && $users->{$data->{username}}) {
-		$users->{$data->{username}} = { 
-			%{ $users->{$data->{username}} },
-			%{ $data }
-		};
-		$self->fdb->write("users", $users);
-		$res->{success} = 1;
-		$res->{users} = [_users_to_array($users)];
-	} elsif (ref $data eq 'HASH') {
-		for my $username ( %{ $data } ) {
-			next unless $users->{$username};
-			$users->{$username} = { 
-				%{ $users->{$username} },
-				%{ $data->{$username} }
-			};
-		}
-		$self->fdb->write("users", $users);
-		$res->{success} = 1;
-		$res->{users} = [_users_to_array($users)];
-	}
+	my $update = $model->update_by('username', $data);
+
+	my $res = {
+		success => $update,
+		users => $model->all()
+	};
 
 	$self->render(json => $res);
 }
@@ -79,23 +58,14 @@ sub update ($self) {
 sub delete ($self) {
 	my $data = $self->req->json;
 
-	my $users = $self->fdb->read('users');
+	my $model = $self->model('User');
 
-	my $res = { success => 0 };
+	my $delete = $model->delete_by('username', $data);
 
-	if ($data->{username} && $users->{$data->{username}} ) {
-		delete $users->{$data->{username}};
-		$self->fdb->write("users", $users);
-		$res->{success} = 1;
-		$res->{users} = [_users_to_array($users)];
-	} elsif (ref $data eq 'HASH') {
-		for my $username ( %{ $data } ) {
-			delete $users->{$username};
-		}
-		$self->fdb->write("users", $users);
-		$res->{success} = 1;
-		$res->{users} = [_users_to_array($users)];
-	}
+	my $res = {
+		success => $delete,
+		users => $model->all()
+	};
 
 	$self->render(json => $res);
 }

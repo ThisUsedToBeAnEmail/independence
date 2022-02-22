@@ -1,0 +1,18 @@
+[
+  {
+      "password" : "$argon2id$v=19$m=32768,t=3,p=1$MjVERkM2QTYtOEJEQy0xMUVDLUFGNTktODM4OTlDN0IyRTk5$0nlJQb4au4SHbRnhvv9Fpw",
+      "id" : 1,
+      "landline" : "++441234567890",
+      "address_line_4" : "test",
+      "first_name" : "test",
+      "mobile" : "+441234567890",
+      "active" : true,
+      "username" : "lnation",
+      "last_name" : "test",
+      "email" : "email@lnation.org",
+      "address_line_1" : "test",
+      "admin" : true,
+      "address_line_2" : "test",
+      "address_line_3" : "test"
+   }
+]

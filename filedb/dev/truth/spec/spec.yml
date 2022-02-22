@@ -1,0 +1,214 @@
+---
+api:
+  authentication: /auth/check
+  login: /auth/login
+  logout: /auth/logout
+default_locale: en
+icons:
+  base_class: text
+  close: ☓
+  first: <<
+  last: '>>'
+  next: '>'
+  prev: <
+images: {}
+locales:
+  application:
+    email:
+      en: This is a email field, you must set a value that contains a valid email
+        address before submitting the form.
+    float:
+      en: This is a float field, you must set a valid value before submitting the
+        form.
+    form_validation_error_description:
+      en: 'It looks like the current form has errors raised on the following fields:
+        [% fields %]. Please first fix these before you re-submit.'
+    form_validation_error_title:
+      en: Form errors detected
+    integer:
+      en: This is a integer field, you must set a valid value before submitting the
+        form.
+    noXSS:
+      en: This field failed XSS validation, please remove any HTML syntax.
+    phone:
+      en: 'This is a phone number field, you must set a valid value before submitting
+        the form. The number must include the international prefix for example: +447123456789.'
+    required:
+      en: This is a required field, you must set a value before submitting the form.
+    title:
+      en: Supervisor
+  cards:
+    ascending:
+      en: Ascending
+    create:
+      en: Create
+    descending:
+      en: Descending
+    filter:
+      en: 'Filter:'
+    first:
+      en: First
+    last:
+      en: Last
+    next:
+      en: Next
+    prev:
+      en: Previous
+    sort:
+      en: 'Sort:'
+  login_page:
+    login:
+      en: Login
+    password:
+      en: Password
+    username:
+      en: Username
+  nav_menu:
+    create_person:
+      en: Create a new patient
+    create_user:
+      en: Create a new user
+    home:
+      en: Overview
+    monitor:
+      en: Monitoring
+    person:
+      en: Patients
+    user:
+      en: Users
+  user_cards:
+    active:
+      en: Active
+    active_info:
+      en: ''
+    address_line_1:
+      en: Address Line 1
+    address_line_1_info:
+      en: ''
+    address_line_2:
+      en: Address Line 2
+    address_line_2_info:
+      en: ''
+    address_line_3:
+      en: Address Line 3
+    address_line_3_info:
+      en: ''
+    address_line_4:
+      en: Address Line 4
+    address_line_4_info:
+      en: ''
+    admin:
+      en: Admin
+    admin_info:
+      en: ''
+    cards_description:
+      en: An overview of all users for Hazy Bar Clinic, please use the create button
+        to add a new user or click on any existing user to edit.
+    cards_title:
+      en: All Users
+    create_modal_description:
+      en: The following form allows you to create an existing supervisor user.
+    create_modal_error_description:
+      en: The API request to create the user failed, please try again and if the issue
+        persists then contact your local administrator.
+    create_modal_error_title:
+      en: User request failed
+    create_modal_header:
+      en: Create user
+    create_modal_success_description:
+      en: The API request to create the user ([% username %]) was successfull. Temporary
+        Password Link [% password_link %].
+    create_modal_success_title:
+      en: User request successfull
+    create_modal_title:
+      en: ''
+    delete_modal_description:
+      en: You are about to delete the following user, are you sure you would like
+        to proceed with this action?
+    delete_modal_error_description:
+      en: The API request to delete the user failed, please try again and if the issue
+        persists then contact your local administrator.
+    delete_modal_error_title:
+      en: Delete user request failed
+    delete_modal_header:
+      en: Delete user - [% username %]
+    delete_modal_success_description:
+      en: The API request to delete the user ([% username %]) was successfull.
+    delete_modal_success_title:
+      en: Delete User request successfull
+    delete_modal_title:
+      en: ''
+    edit_modal_description:
+      en: The following form allows you to edit an existing supervisor user.
+    edit_modal_error_description:
+      en: The API request to update the user failed, please try again and if the issue
+        persists then contact your local administrator.
+    edit_modal_error_title:
+      en: User request failed
+    edit_modal_header:
+      en: Edit user
+    edit_modal_success_description:
+      en: The API request to update the user ([% username %]) was successfull.
+    edit_modal_success_title:
+      en: User request successfull
+    edit_modal_title:
+      en: ''
+    email:
+      en: Email
+    email_info:
+      en: ''
+    first_name:
+      en: First Name
+    first_name_info:
+      en: ''
+    id:
+      en: ID
+    id_info:
+      en: ''
+    landline:
+      en: Landline
+    landline_info:
+      en: ''
+    last_action:
+      en: Last Action
+    last_action_info:
+      en: ''
+    last_login:
+      en: Last Login
+    last_login_info:
+      en: ''
+    last_name:
+      en: Last Name
+    last_name_info:
+      en: ''
+    mobile:
+      en: Mobile
+    mobile_info:
+      en: ''
+    username:
+      en: Username
+    username_info:
+      en: A text string that represents a username which has to be unique per environment,
+        it cannot be changed after initial creation of the user.
+menu:
+- action: renderHomePage
+  admin: false
+  page: home
+- action: renderMonitorPage
+  admin: false
+  page: monitor
+- action: renderPersonPage
+  admin: true
+  nested:
+  - action: renderCreatePersonPage
+    admin: true
+    page: create_occupant
+  page: person
+- action: renderUserPage
+  admin: true
+  nested:
+  - action: renderCreateUserPage
+    admin: true
+    page: create_user
+  page: user
+show_errors: below_field

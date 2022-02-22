@@ -10,14 +10,14 @@ sub check ($self) {
 
 sub login ($self) {
 	my $params = $self->req->json;
-	my $users = $self->fdb->read('users');
-	my $user = $users->{$params->{username}};
+
+	my $user = $self->model('User')->find(
+		username => $params->{username}	
+	);
+
 	if ($user && argon2id_verify($user->{password}, $params->{password})) {
 		$self->session(user => $user, expires => time + 18000);
 	}
-
-	use Data::Dumper;
-	warn Dumper $self->session('user');
 
 	$self->render(json => {
 		authenticated => $self->session('user') ? \1 : \0

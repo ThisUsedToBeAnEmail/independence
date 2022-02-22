@@ -1,9 +1,12 @@
 % layout 'default';
+<script type="text/javascript" src="/moment.js"></script>
+<script type="text/javascript" src="/moment-tz.js"></script>
 <script type="text/javascript" src="/supervisor.js"></script>
 <script type="text/javascript" src="/supervisorUtils.js"></script>
 <script type="text/javascript" src="/supervisorAttributes.js"></script>
 <script type="text/javascript" src="/supervisorCards.js"></script>
 <script type="text/javascript" src="/supervisorForms.js"></script>
+<script type="text/javascript" src="/supervisorChat.js"></script>
 <script type="text/javascript" src="/spa.js"></script>
 <script>
 	let conf = <%== $spa_config %>;

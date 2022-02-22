@@ -74,8 +74,9 @@
 		"application_wrapper",
 		"menu_wrapper",
 		"user_page",
-		"person_page",
+		"request_page",
 		"monitor_page",
+		"admin_room_page",
 		"home_page"
 	].forEach(function (k) {
 		proto[k] = function (val) {
@@ -115,7 +116,8 @@
 			[
 				"home",
 				"monitor",
-				"person",
+				"admin_room",
+				"request",
 				"create_person",
 				"user",
 				"create_user",
@@ -191,6 +193,41 @@
 				"address_line_4_info",
 				"last_login_info",
 				"last_action_info"
+			],
+		],
+		[
+			"all_request_cards",	
+			[
+				"cards_title",
+				"cards_description",
+				"create_modal_header",
+				"create_modal_title",
+				"create_modal_description",
+				"create_modal_error_title",
+				"create_modal_error_description",
+				"create_modal_success_title",
+				"create_modal_success_description",
+				"edit_modal_header",
+				"edit_modal_title",
+				"edit_modal_description",
+				"edit_modal_error_title",
+				"edit_modal_error_description",
+				"edit_modal_success_title",
+				"edit_modal_success_description",
+				"delete_modal_header",
+				"delete_modal_title",
+				"delete_modal_description",
+				"delete_modal_error_title",
+				"delete_modal_error_description",
+				"delete_modal_success_title",
+				"delete_modal_success_description",
+				"id",
+				"title",
+				"title_info",
+				"description",
+				"description_info",
+				"priority",
+				"priority_info"
 			]
 		]
 	].forEach(function (k) {

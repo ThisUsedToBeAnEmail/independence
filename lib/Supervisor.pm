@@ -13,6 +13,7 @@ sub startup ($self) {
 	$self->secrets($config->{secrets});
 
 	$self->plugin("Supervisor::Plugin::FDB");
+	$self->plugin("Supervisor::Plugin::DB");
 
 	# Router
 	my $r = $self->routes;
@@ -30,6 +31,15 @@ sub startup ($self) {
 	});
 
 	$auth->any("/auth/logout")->to("auth#logout");
+
+	my $monitor = $auth->under("/monitor")->to("monitor#base");
+	$monitor->websocket("/ws")->to("monitor#websocket");
+
+	my $requests = $auth->under("/requests")->to("request#base");
+	$requests->get("/")->to("request#all");
+	$requests->post("/")->to("request#update");
+	$requests->delete("/")->to("request#delete");
+	$requests->post("/create")->to("request#create");
 
 	my $users = $auth->under("/users")->to("user#base");
 	$users->get("/")->to("user#all");

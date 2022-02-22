@@ -2,8 +2,9 @@ package Supervisor::Controller::Monitor;
 use Mojo::Base 'Mojolicious::Controller', -signatures;
 
 # This action will render a template
-sub index ($self) {
+sub base ($self) {
 	#$self->render(msg => 'Welcome to the Mojolicious real-time web framework!');
+	return 1;
 }
 
 sub websocket ($self) {
@@ -12,7 +13,7 @@ sub websocket ($self) {
 	$self->inactivity_timeout(300);
 
 	$self->on(message => sub ($c, $msg) {
-		$c->send("echo: $msg added");
+		$c->send($msg);
 	});
 
 	$self->on(finish => sub ($c, $code, $reason = undef) {

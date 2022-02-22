@@ -40,6 +40,16 @@
 			}
 			return next || node;
 		},
+		insertNode: function (index, options, wrapper) {
+			let self = this;
+			let node = self.createNode(options);
+			let find = wrapper.firstChild;
+			for (let i = 0; i < index; i++) {
+				find = find.nextChild;
+			}
+			wrapper.insertBefore(node, find);
+			return node;
+		},
 		clear: function (node) {
 			((node instanceof Array) ? node : [ node ]).forEach(function (n) {
 				n.innerHTML = '';

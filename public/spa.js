@@ -158,7 +158,7 @@
 		},
 		renderMenuItem: function (active, page) {
 			let self = this;
-
+			console.log(page);
 			let item = self.util.createNode({
 				tag: "div",
 				class: "menu-item",
@@ -197,26 +197,112 @@
 				class: "application-page",
 				id: "home_page"
 			}, self.attribute.application_wrapper()));
-
 		},
 		renderMonitorPage: function () {
 			let self = this;
 			self.attribute.monitor_page(self.util.createNode({
 				tag: "div",
-				class: "application-page",
+				class: ["application-page", "p0"],
 				id: "monitor_page"
+			}, self.attribute.application_wrapper()));
+
+			let wrapper = self.util.createNode({
+				tag: "div",
+				class: "monitor-wrapper",
+			}, self.attribute.monitor_page());
+
+			self.chat.create(wrapper, {
+				endpoint: 'ws://localhost:3000/monitor/ws',
+			});
+		},
+		renderAdminRoomPage: function () {
+			let self = this;
+
+			self.attribute.admin_room_page(self.util.createNode({
+				tag: "div",
+				class: ["application-page", "p0"],
+				id: "admin_room_page"
 			}, self.attribute.application_wrapper()));
 
 
 		},
-		renderPersonPage: function () {
+		renderRequestPage: function () {
 			let self = this;
-			self.attribute.person_page(self.util.createNode({
+			self.attribute.request_page(self.util.createNode({
 				tag: "div",
 				class: "application-page",
-				id: "person_page"
+				id: "request_page"
 			}, self.attribute.application_wrapper()));
 
+			let wrapper = self.util.createNode({
+				tag: "div",
+				class: "card-wrapper",
+			}, self.attribute.request_page());
+
+			var cards = self.cards.create(wrapper, {
+				icon_mode: true,
+				locale_section: 'all_request_cards',
+				remove_empty: true,
+				createable: {
+					type: "POST",
+					endpoint: "/requests/create",
+					id: "create-request-form"
+				},
+				editable: {
+					type: "POST",
+					endpoint: "/requests",
+					header_field: "title",
+					id: "edit-request-form"
+				},
+				deleteable: {
+					type: "DELETE",
+					endpoint: "/requests",
+					header_field: "title",
+				},
+				fetch_data: { // TODO add support for serverside filters/sorting/streaming
+					method: "GET",
+					endpoint: "/requests",
+				},	
+				pagination: {},
+				headers:[
+ 					{
+						name: "id",
+						no_render: true,
+						sortable: true,
+						filterable: true,
+					},
+					{
+						name:"title",
+						sortable: { active: true, direction: "desc" },
+						filterable: true,
+						field: {
+							attributes: {
+								required: true,
+							},
+						}
+					},
+					{
+						name: "description",
+						sortable: true,
+						filterable: true,
+						field: {
+							attributes: {
+								required: true,
+							}
+						}
+					},
+					{
+						name: "priority",
+						sortable: true,
+						filterable: true,
+						field: {
+							attributes: {
+								required: true,
+							}
+						}
+					}
+				],
+			});
 		},
 		renderUserPage: function () {
 			let self = this;
@@ -230,25 +316,7 @@
 				tag: "div",
 				class: "card-wrapper",
 			}, self.attribute.user_page());
-
-			var data = [
-				{
-					id: 1,
-					username: "foo",
-					first_name: "bar",
-					last_name: "zap",
-					email: "email@lnation.org",
-					admin: true,
-					active: true,
-					mobile: '+447171717171',
-					landline: '01234567890',
-					address_line_1: "100 landline lane",
-					address_line_2: "Jupiter",
-					address_line_3: "Solar",
-					address_line_4: "Z11J22",
-				}
-			];
-		
+	
 			var cards = self.cards.create(wrapper, {
 				icon_mode: true,
 				locale_section: 'user_cards',

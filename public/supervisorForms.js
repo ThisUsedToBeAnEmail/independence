@@ -300,10 +300,6 @@
 				children: [
 					{
 						tag: "div",
-						class: "supervisor-field-error-pointer"
-					},
-					{
-						tag: "div",
 						class: "supervisor-field-error-text",
 						styles: style2,
 						children: [
@@ -312,6 +308,10 @@
 								text: error[1]
 							}
 						]
+					},
+					{
+						tag: "div",
+						class: "supervisor-field-error-pointer"
 					}
 				]
 			});

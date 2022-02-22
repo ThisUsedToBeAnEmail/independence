@@ -10,31 +10,23 @@
 		{
 			"page": "monitor",
 			"action": "renderMonitorPage",
-			"admin": false
+			"admin": true
 		},
 		{
-			"page": "person",
-			"action": "renderPersonPage",
-			"admin": true,
-			"nested": [
-				{
-					"page": "create_occupant",
-					"action": "renderCreatePersonPage",
-					"admin": true
-				}
-			]
+			"page": "admin_room",
+			"action": "renderAdminRoomPage",
+			"admin": "true",
+			"private": "true"
+		},
+		{
+			"page": "request",
+			"action": "renderRequestPage",
+			"admin": true
 		},
 		{
 			"page": "user",
 			"action": "renderUserPage",
-			"admin": true,
-			"nested": [
-				{
-					"page": "create_user",
-					"action": "renderCreateUserPage",
-					"admin": true
-				}
-			]
+			"admin": true
 		}
 	],
 	"api": {
@@ -101,11 +93,14 @@
 			"monitor": {
 				"en": "Monitoring"
 			},
-			"person": {
-				"en": "Patients"
+			"request": {
+				"en": "Requests"
+			},
+			"admin_room": {
+				"en": "Staff Room"
 			},
 			"create_person": {
-				"en": "Create a new patient"
+				"en": "Create a new persona"
 			},
 			"user": {
 				"en": "Users"
@@ -302,6 +297,116 @@
 			},
 			"last_action_info": {
 				"en": ""
+			}
+		},
+		"all_request_cards": {
+			"cards_title": {
+				"en": "All Requests"
+			},
+			"cards_description": {
+				"en": "An overview of all requests users have made for Hazy Bar Clinic, please use the create button to add a new request or click on any existing user to edit."
+			},
+			"create_modal_header": {
+				"en": "Create request"
+			},
+			"create_modal_title": {
+				"en": ""
+			},
+			"create_modal_description": {
+				"en": "The following form allows you to create a new request."
+			},
+			"create_modal_error_title": {
+				"en": "Request creation failed"
+			},
+			"create_modal_error_description": {
+				"en": "The API request to create the request failed, please try again and if the issue persists then contact your local administrator."
+			},
+			"create_modal_success_title": {
+				"en": "Request created successfully"
+			},
+			"create_modal_success_description": {
+				"en": "The API request to create the request was successfull."
+			},
+			"edit_modal_header": {
+				"en": "Edit request"
+			},
+			"edit_modal_title": {
+				"en": ""
+			},
+			"edit_modal_description": {
+				"en": "The following form allows you to edit an existing request."
+			},	
+			"edit_modal_error_title": {
+				"en": "Request creation failed"
+			},
+			"edit_modal_error_description": {
+				"en": "The API request to update the request failed, please try again and if the issue persists then contact your local administrator."
+			},
+			"edit_modal_success_title": {
+				"en": "Request created successfull"
+			},
+			"edit_modal_success_description": {
+				"en": "The API request to update the request was successfull."
+			},
+			"delete_modal_header": {
+				"en": "Delete request"
+			},
+			"delete_modal_title": {
+				"en": ""
+			},
+			"delete_modal_description": {
+				"en": "You are about to delete the following request, are you sure you would like to proceed with this action?"
+			},
+			"delete_modal_error_title": {
+				"en": "Delete request failed"
+			},
+			"delete_modal_error_description": {
+				"en": "The API request to delete the request failed, please try again and if the issue persists then contact your local administrator."
+			},
+			"delete_modal_success_title": {
+				"en": "Delete request successfull"
+			},
+			"delete_modal_success_description": {
+				"en": "The API request to delete the request was successfull."
+			},
+			"id": {
+				"en": "ID"
+			},
+			"title": {
+				"en": "Title"
+			},
+			"title_info": {
+				"en": "The title of the request, this should be an abbreviation of the description."
+			},
+			"description": {
+				"en": "Description"
+			},
+			"description_info": {
+				"en": "The description of the request, this should fully summarise the request you are making...."
+			},
+			"priority": {
+				"en": "Priority"
+			},
+			"priority_info": {
+				"en": "Select the urgency level that the request needs to have action taken, 10 being most 1 being least important."
+			},
+			"created_by": {
+				"en": "Created by"
+			},
+			"assigned": {
+				"en": "Assigned to"
+			},
+			"estimate": {
+				"en": "Estimated time to complete"
+			},
+			"complete": {
+				"en": "Completed"
+			},
+			"complete_date": {
+				"en": "Completed date"
+			},
+			"notes": {
+				"en": "Request Notes"
 			}
 		}
 	}
